@@ -13,7 +13,7 @@ class Pagina extends Migration
      */
     public function up()
     {
-        Schema::create('pagina', function (Blueprint $table) {
+        Schema::create('paginas', function (Blueprint $table) {
             $table->id('paginaID')->autoIncrement();
             $table->string('titel')->nullable(false);
             $table->string('content');

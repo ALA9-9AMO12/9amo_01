@@ -14,6 +14,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/ImkerVereniging/vendor/phpunit/php-code-coverage" />
@@ -130,7 +138,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Opdrachten laravel/opdr06" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testing" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -145,6 +153,7 @@
       <workItem from="1621241353348" duration="87000" />
       <workItem from="1621326898881" duration="276000" />
       <workItem from="1621420476301" duration="32000" />
+      <workItem from="1622449697717" duration="2783000" />
     </task>
     <servers />
   </component>

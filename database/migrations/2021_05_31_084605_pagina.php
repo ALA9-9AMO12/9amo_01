@@ -28,6 +28,6 @@ class Pagina extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pagina');
+        Schema::dropIfExists('paginas');
     }
 }

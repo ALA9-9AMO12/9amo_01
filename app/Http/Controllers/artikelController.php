@@ -19,6 +19,7 @@ class artikelController extends Controller
      */
     public function index()
     {
+        return view('artikel.index', ['artikel' => Artikel::orderBy('titel')->get()]);
     }
 
     /**
@@ -96,6 +97,6 @@ class artikelController extends Controller
             return redirect()->back()->withErrors(['An error occurred during the article deletion process.']);
         }
 
-        return redirect()->route('article.index');
+        return redirect()->route('artikel.index');
     }
 }

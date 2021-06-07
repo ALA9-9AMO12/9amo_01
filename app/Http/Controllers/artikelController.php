@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Artikel;
+use App\Http\Requests\Artikel\StoreRequest;
+use App\Http\Requests\Artikel\UpdateRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\ValidationException;
+
 
 class artikelController extends Controller
 {
@@ -14,7 +19,7 @@ class artikelController extends Controller
      */
     public function index()
     {
-        //
+        return view('artikel.index', ['artikel' => Artikel::orderBy('titel')->get()]);
     }
 
     /**
@@ -24,7 +29,8 @@ class artikelController extends Controller
      */
     public function create()
     {
-        //
+        //return create form voor artikel
+        return view('artikel.create');
     }
 
     /**
@@ -33,9 +39,12 @@ class artikelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        //slaat artikel op in db
+        Artikel::create($request->all());
+
+        return redirect()->route('artikel.index');
     }
 
     /**
@@ -57,7 +66,7 @@ class artikelController extends Controller
      */
     public function edit(Artikel $artikel)
     {
-        //
+        return view('artikel.edit', ['artikel' => $artikel]);
     }
 
     /**
@@ -67,9 +76,11 @@ class artikelController extends Controller
      * @param  \App\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Artikel $artikel)
+    public function update(UpdateRequest $request, Artikel $artikel)
     {
-        //
+        $artikel->update($request->all());
+
+        return redirect()->route('artikel.index');
     }
 
     /**
@@ -80,6 +91,12 @@ class artikelController extends Controller
      */
     public function destroy(Artikel $artikel)
     {
-        //
+        try {
+            $artikel->delete();
+        } catch (\Exception $exception) {
+            return redirect()->back()->withErrors(['An error occurred during the article deletion process.']);
+        }
+
+        return redirect()->route('artikel.index');
     }
 }

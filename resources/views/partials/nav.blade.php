@@ -1,13 +1,13 @@
-<nav class="fixed-top navbar navbar-expand-lg navbar-light justify-content-between" style="background-color: rgba(255, 162, 0, 0.8); )">
-    <div>
-    <a class="navbar-brand col-6" href="#">Imkervereniging Oegstgeest</a>
+<nav class="fixed-top navbar navbar-expand-lg navbar-light d-flex justify-content-between col-12" style="background-color: rgba(255, 162, 0, 0.8); )">
+    <div class="col-3 ">
+    <a class="navbar-brand" href="#">Imkervereniging Oegstgeest</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
 
-    <div class="collapse navbar-collapse d-flex justify-content-end col-6"  id="navbarSupportedContent">
-            <ul style="margin-left: 3vw;" class="navbar-nav mr-auto ">
+    <div class="collapse navbar-collapse d-flex align-items-end justify-content-end col-9"  id="navbarSupportedContent">
+            <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home</a>
                 </li>
@@ -39,8 +39,6 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-
-
             </ul>
         </div>
 </nav>

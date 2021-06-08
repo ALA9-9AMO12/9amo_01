@@ -8,7 +8,7 @@
 </head>
 <body class="d-flex container-fluid flex-column w-100">
 @include('partials.nav')
-    <div class="d-flex justify-content-center" style="margin-top: 8vh">
+    <div class="d-flex justify-content-center" style="margin-top: 10vh">
         <h1>@yield('webTitle')</h1>
     </div>
 

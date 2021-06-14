@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('createLayout')
 {{--@include('nav')--}}
 @section('title')
     Admin

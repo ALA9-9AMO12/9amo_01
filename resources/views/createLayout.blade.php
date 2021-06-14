@@ -12,8 +12,8 @@
     <h1>@yield('webTitle')</h1>
 </div>
 
-<section class="col-12 d-flex justify-content-center align-items-center flex-wrap" style="margin-top: 7vh">
-    @yield('çontent')
+<section class="col-12 d-flex flex-column" style="margin-top: 7vh">
+    @yield('content')
 </body>
 @include('partials.footer')
 </html>

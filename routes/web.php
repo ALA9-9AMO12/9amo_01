@@ -20,4 +20,4 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin');
 });
-Route::resource('artikel', 'ArtikelController');
+Route::resource('artikel', 'artikelController');

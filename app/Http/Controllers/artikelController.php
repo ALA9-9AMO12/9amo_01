@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Artikel;
 use App\Http\Requests\Artikel\StoreRequest;
 use App\Http\Requests\Artikel\UpdateRequest;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
+use Illuminate\Contracts\View\Factory;
+use Throwable;
 
 
 class artikelController extends Controller
@@ -15,7 +17,7 @@ class artikelController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|Factory|View
      */
     public function index()
     {
@@ -23,9 +25,9 @@ class artikelController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the form for new article creation.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -34,35 +36,42 @@ class artikelController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Validate the submitted data via the form and create a new article.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return RedirectResponse
+     * @param StoreRequest $request
+     * @return void
      */
     public function store(StoreRequest $request)
     {
         //slaat artikel op in db
-        Artikel::create($request->all());
+        $artikel = new Artikel();
+        $artikel->titel = $request->input('titel');
+        $artikel->content = $request->input('content');
+        $artikel->afbeelding = $request->input('afbeelding');
 
-        return redirect()->route('artikel.index');
+        try {
+            $artikel->save();
+        } catch (Throwable $e) {
+            echo $e;
+        }
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Artikel  $artikel
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|Factory|View
      */
     public function show(Artikel $artikel)
     {
-        //
+        return view('artikel.show', ['artikel' => $artikel]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Artikel  $artikel
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|Factory|View
      */
     public function edit(Artikel $artikel)
     {

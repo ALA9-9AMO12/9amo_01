@@ -1,12 +1,9 @@
 @extends('layout')
 {{--@include('nav')--}}
 @section('title')
-    HalloTest
+    Admin
 @endsection
 
-@section('body')
-    <div class="d-flex justify-content-center align-items-center col-12 col-md-12 col-lg-12">
-        <h1>Home</h1>
-    </div>
+@section('content')
     @include('artikel.create')
 @endsection

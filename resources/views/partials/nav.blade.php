@@ -1,4 +1,4 @@
-<nav class="fixed-top navbar navbar-expand-lg navbar-light col-12 d-flex justify-content-between" style="background-color: rgba(255, 162, 0, 0.8); )">
+<nav class="fixed-top navbar navbar-expand-lg navbar-light col-12 d-flex justify-content-between" style="background-color: rgba(252, 180, 0, 0.8); )">
     <a class="navbar-brand col-3" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

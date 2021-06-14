@@ -1,7 +1,6 @@
-<footer class="fixed-bottom" style="background-color: rgba(255, 162, 0, 0.8);">
+<footer class="fixed-bottom" style="background-color: rgba(252, 180, 0, 0.8);">
     <div class="text-center p-3">
-        © 2021 Copyright:
-        <a class="text-dark" href="https://wes-online.nl/">wes-online.nl</a>
+        © 2021 Copyright: Imkervereniging Oegstgeest
     </div>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

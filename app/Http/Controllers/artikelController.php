@@ -7,6 +7,7 @@ use App\Http\Requests\Artikel\StoreRequest;
 use App\Http\Requests\Artikel\UpdateRequest;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Contracts\View\Factory;
 use Throwable;
@@ -39,7 +40,7 @@ class artikelController extends Controller
      * Validate the submitted data via the form and create a new article.
      *
      * @param StoreRequest $request
-     * @return void
+     * @return RedirectResponse
      */
     public function store(StoreRequest $request)
     {
@@ -48,18 +49,15 @@ class artikelController extends Controller
         $artikel->titel = $request->input('titel');
         $artikel->content = $request->input('content');
         $artikel->afbeelding = $request->input('afbeelding');
-
-        try {
-            $artikel->save();
-        } catch (Throwable $e) {
-            echo $e;
-        }
+        echo  $artikel->titel;
+        $artikel->save();
+        return redirect()->route('artikel.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Artikel  $artikel
+     * @param Artikel $artikel
      * @return \Illuminate\Contracts\Foundation\Application|Factory|View
      */
     public function show(Artikel $artikel)
@@ -70,7 +68,7 @@ class artikelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Artikel  $artikel
+     * @param Artikel $artikel
      * @return \Illuminate\Contracts\Foundation\Application|Factory|View
      */
     public function edit(Artikel $artikel)
@@ -81,8 +79,8 @@ class artikelController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Artikel  $artikel
+     * @param UpdateRequest $request
+     * @param Artikel $artikel
      * @return RedirectResponse
      */
     public function update(UpdateRequest $request, Artikel $artikel)
@@ -95,7 +93,7 @@ class artikelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Artikel  $artikel
+     * @param Artikel $artikel
      * @return RedirectResponse
      */
     public function destroy(Artikel $artikel)

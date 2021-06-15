@@ -1,7 +1,6 @@
     <h1>Artikel aanmaken</h1>
 
     <form action="{{ route('artikel.store') }}" method="POST" class="col-5">
-        @csrf
 
         <div class="form-group">
             <label for="titel">Titel</label>

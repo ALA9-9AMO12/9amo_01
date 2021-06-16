@@ -1,7 +1,7 @@
     <h1>Artikel aanmaken</h1>
 
-    <form action="{{ route('artikel.store') }}" method="POST" class="col-5">
-
+    <form action="{{ route('artikelen.store') }}" method="POST" class="col-5">
+        {{ csrf_field() }}
         <div class="form-group">
             <label for="titel">Titel</label>
             <input type="text" name="titel" id="titel" class="form-control" value="{{ old('titel') }}" required minlength="3" maxlength="80" />

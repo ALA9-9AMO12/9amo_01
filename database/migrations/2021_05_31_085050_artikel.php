@@ -15,11 +15,11 @@ class Artikel extends Migration
     {
         Schema::enableForeignKeyConstraints();
 
-        Schema::create('artikel', function (Blueprint $table) {
+        Schema::create('artikelen', function (Blueprint $table) {
             $table->id('artikelID')->autoIncrement();
             $table->string('titel')->nullable(false);
             $table->string('content');
-            $table->binary('afbeelding');
+            $table->binary('afbeelding')->nullable(true);
             $table->foreignId('gebruikerID')->references('gebruikerID')->on('gebruikers');
             $table->foreignId('paginaID')->references('paginaID')->on('paginas');
         });
@@ -32,6 +32,6 @@ class Artikel extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('artikel');
+        Schema::dropIfExists('artikelen');
     }
 }

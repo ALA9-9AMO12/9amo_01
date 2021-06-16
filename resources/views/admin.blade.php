@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    @include('artikel.create')
+    @include('artikelen.create')
 @endsection

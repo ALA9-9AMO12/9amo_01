@@ -8,6 +8,7 @@ use App\Http\Requests\Artikel\UpdateRequest;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Contracts\View\Factory;
 use Throwable;
@@ -18,62 +19,74 @@ class artikelController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|Factory|View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('artikel.index', ['artikel' => Artikel::orderBy('titel')->get()]);
+        $data['artikelen'] = Artikel::orderBy('id')->paginate(10);
+        return view('artikelen.index',$data);
     }
 
     /**
      * Display the form for new article creation.
      *
-     * @return Application|Factory|View
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //return create form voor artikel
-        return view('artikel.create');
+        //return create form voor artikelen
+        return view('artikelen.create');
     }
 
     /**
      * Validate the submitted data via the form and create a new article.
      *
-     * @param StoreRequest $request
-     * @return RedirectResponse
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        //slaat artikel op in db
-        $artikel = new Artikel();
-        $artikel->titel = $request->input('titel');
-        $artikel->content = $request->input('content');
-        $artikel->afbeelding = $request->input('afbeelding');
-        echo  $artikel->titel;
-        $artikel->save();
-        return redirect()->route('artikel.index');
+        $request->validate([
+            'titel' => 'required',
+            'content' => 'required',
+            'afbeelding' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        if ($files = $request->file('afbeelding')) {
+            $destinationPath = 'public/image/'; // upload path
+            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $profileImage);
+            $insert['afbeelding'] = "$profileImage";
+        }
+        $insert['titel'] = $request->get('titel');
+        var_dump($request->get('titel'));
+        $insert['content'] = $request->get('content');
+        Artikel::insert($request->all());
+        return Redirect::to('artikelen')
+            ->with('success','Greate! Product created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Artikel $artikel
-     * @return \Illuminate\Contracts\Foundation\Application|Factory|View
+     * @param int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function show(Artikel $artikel)
+    public function show($id)
     {
-        return view('artikel.show', ['artikel' => $artikel]);
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Artikel $artikel
-     * @return \Illuminate\Contracts\Foundation\Application|Factory|View
+     * @param int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function edit(Artikel $artikel)
+    public function edit($id)
     {
-        return view('artikel.edit', ['artikel' => $artikel]);
+        $artikelen = Artikel::findOrFail($id);
+
+        return view('artikelen.edit', compact('artikelen'));
     }
 
     /**
@@ -87,7 +100,7 @@ class artikelController extends Controller
     {
         $artikel->update($request->all());
 
-        return redirect()->route('artikel.index');
+        return redirect()->route('artikelen.index');
     }
 
     /**
@@ -104,6 +117,6 @@ class artikelController extends Controller
             return redirect()->back()->withErrors(['An error occurred during the article deletion process.']);
         }
 
-        return redirect()->route('artikel.index');
+        return redirect()->route('artikelen.index');
     }
 }

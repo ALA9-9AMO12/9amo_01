@@ -23,7 +23,7 @@ class artikelController extends Controller
      */
     public function index()
     {
-        $data['artikelen'] = Artikel::orderBy('id')->paginate(10);
+        $data['artikelen'] = Artikel::orderBy('artikelID')->paginate(10);
         return view('artikelen.index',$data);
     }
 
@@ -82,24 +82,24 @@ class artikelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int  $id
-     * @return \Illuminate\Http\Response
+     * @param Artikel $artikel
+     * @return Application|Factory|View
      */
-    public function edit($id)
+    public function edit(Artikel $artikel)
     {
-        $artikelen = Artikel::findOrFail($id);
+        $artikelen = Artikel::findOrFail($artikel);
 
-        return view('artikelen.edit', compact('artikelen'));
+        return view('artikelen.edit', ['artikel' => $artikel]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateRequest $request
+     * @param Request $request
      * @param Artikel $artikel
      * @return RedirectResponse
      */
-    public function update(UpdateRequest $request, Artikel $artikel)
+    public function update(Request $request, Artikel $artikel)
     {
         $artikel->update($request->all());
 

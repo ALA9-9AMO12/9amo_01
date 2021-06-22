@@ -6,4 +6,5 @@
 
 @section('content')
     @include('artikelen.create')
+    @include('artikelen.index')
 @endsection

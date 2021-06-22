@@ -15,6 +15,6 @@ class Artikel extends Model
     protected $fillable = [
         'titel',
         'content',
-        'afbeelding',
+//        'afbeelding',
     ];
 }

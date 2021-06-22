@@ -49,20 +49,23 @@ class artikelController extends Controller
         $request->validate([
             'titel' => 'required',
             'content' => 'required',
-            'afbeelding' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//            'afbeelding' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        if ($files = $request->file('afbeelding')) {
-            $destinationPath = 'public/image/'; // upload path
-            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-            $files->move($destinationPath, $profileImage);
-            $insert['afbeelding'] = "$profileImage";
-        }
+//        $image =  $insert['afbeelding'] = $request->get('afbeelding');
+//        if ($request->file('afbeelding')) {
+//            $imagePath = $request->file('afbeelding');
+//            $imageName = $imagePath->getClientOriginalName();
+//
+//            $path = $request->file('file')->storeAs('uploads', $imageName, 'public');
+//        }
+//        $image->name = $imageName;
+//        $image->path = '/storage/'.$path;
+//        $image->save();
         $insert['titel'] = $request->get('titel');
-        var_dump($request->get('titel'));
         $insert['content'] = $request->get('content');
-        Artikel::insert($request->all());
-        return Redirect::to('artikelen')
-            ->with('success','Greate! Product created successfully.');
+        Artikel::insert(request()->except(['_token']));
+        return Redirect::to('artikelen/create')
+            ->with('success','Great! Product created successfully.');
     }
 
     /**

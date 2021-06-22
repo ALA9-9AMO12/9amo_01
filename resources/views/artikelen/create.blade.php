@@ -1,6 +1,6 @@
     <h1>Artikel aanmaken</h1>
 
-    <form action="{{ route('artikelen.store') }}" method="POST" class="col-5">
+    <form action="{{ route('artikelen.store') }}" method="POST" enctype="multipart/form-data" class="col-5">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="titel">Titel</label>

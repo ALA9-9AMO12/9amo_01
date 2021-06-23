@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="284e1732-ccb7-4276-a0bd-587afaccd4b1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_31_083011_gebruiker.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_31_083011_gebruiker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_31_085050_artikel.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_31_085050_artikel.php" afterDir="false" />
-    </list>
+    <list default="true" id="284e1732-ccb7-4276-a0bd-587afaccd4b1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,6 +174,7 @@
       <workItem from="1623134830000" duration="1188000" />
       <workItem from="1623661964404" duration="699000" />
       <workItem from="1624444156537" duration="456000" />
+      <workItem from="1624445038440" duration="2700000" />
     </task>
     <servers />
   </component>

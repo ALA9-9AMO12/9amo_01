@@ -11,7 +11,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('/uitloggen', function () {
     Auth::logout();
     return view('home');

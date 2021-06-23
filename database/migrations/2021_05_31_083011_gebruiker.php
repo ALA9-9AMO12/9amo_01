@@ -30,6 +30,6 @@ class Gebruiker extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gebruikers');
+        Schema::dropIfExists('users');
     }
 }

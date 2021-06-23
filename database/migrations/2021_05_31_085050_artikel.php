@@ -20,7 +20,7 @@ class Artikel extends Migration
             $table->string('titel')->nullable(false);
             $table->string('content');
             $table->binary('afbeelding');
-            $table->foreignId('gebruikerID')->references('gebruikerID')->on('gebruikers');
+            $table->foreignId('gebruikerID')->references('id')->on('users');
             $table->foreignId('paginaID')->references('paginaID')->on('paginas');
         });
     }

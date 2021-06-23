@@ -13,11 +13,13 @@ class Gebruiker extends Migration
      */
     public function up()
     {
-        Schema::create('gebruikers', function (Blueprint $table) {
-            $table->id('gebruikerID')->autoIncrement();
-            $table->string('gebruikersnaam')->nullable(false);
-            $table->string('wachtwoord')->nullable(false);
-            $table->char("rol")->nullable(false);
+        Schema::create('users', function (Blueprint $table) {
+            $table->id('id')->autoIncrement();
+            $table->string('email')->nullable(false);
+            $table->string('password')->nullable(false);
+            $table->string("name")->nullable(false);
+            $table->date("updated_at")->nullable(false);
+            $table->date("created_at")->nullable(false);
         });
     }
 
@@ -28,6 +30,6 @@ class Gebruiker extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gebruikers');
+        Schema::dropIfExists('users');
     }
 }

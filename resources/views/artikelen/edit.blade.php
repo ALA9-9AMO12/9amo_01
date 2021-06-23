@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1>Article editing {{ $artikel->titel }}</h1>
+{{--    <h1>Article editing {{ $artikel->titel }}</h1>--}}
 
     <form action="{{ route('artikelen.update', ['artikel' => $artikel]) }}" method="POST">
         @csrf

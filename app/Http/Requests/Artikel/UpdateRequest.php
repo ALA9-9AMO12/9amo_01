@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Artikel;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
 {
@@ -16,13 +17,18 @@ class UpdateRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
+        /**
+         *
+         * Return validation rules for the form responsible for editing articles.
+         *
+         * @return array
+         */
+        public function rules()
     {
-
+        return [
+            'artikelID' => ['required', Rule::unique('artikelen', 'artikelID')->ignore(route('artikel')->artikelID)],
+            'titel' => ['required', 'min:3', 'max:80'],
+            'content' => ['required', 'min:10']
+        ];
     }
 }

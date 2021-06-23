@@ -87,7 +87,7 @@ class artikelController extends Controller
      */
     public function edit(Artikel $artikel)
     {
-        $artikelen = Artikel::findOrFail($artikel);
+        $artikel = Artikel::findOrFail($artikel);
 
         return view('artikelen.edit', ['artikel' => $artikel]);
     }
